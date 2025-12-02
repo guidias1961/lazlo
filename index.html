@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$LAZLO - The Pizza Legend</title>
+    <style>
+        /* RESET & BASE */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #F7931A; /* Bitcoin Orange */
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* UTILS */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btc-orange { color: #F7931A; }
+        .btc-white { color: #ffffff; }
+        .bg-orange { background-color: #F7931A; color: #000; }
+        
+        /* FONTS */
+        h1, h2, h3 {
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        h1 { font-size: 4rem; line-height: 1; margin-bottom: 10px; text-shadow: 4px 4px 0px #ffffff; }
+        h2 { font-size: 2.5rem; border-bottom: 2px solid #F7931A; display: inline-block; margin-top: 40px; margin-bottom: 20px; }
+
+        /* MARQUEE BAR */
+        .marquee-container {
+            background: #F7931A;
+            color: #000;
+            padding: 10px 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #fff;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 50px 0;
+            border-bottom: 1px dashed #333;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 400px;
+            border: 5px solid #fff;
+            box-shadow: 10px 10px 0px #F7931A;
+            transition: transform 0.1s;
+        }
+
+        .hero-img:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 12px 12px 0px #fff;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        /* NARRATIVE SECTION */
+        .lore-box {
+            background: #1a1a1a;
+            border: 2px solid #F7931A;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .lore-text {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .proof-img {
+            width: 100%;
+            border: 2px solid #555;
+            filter: grayscale(100%) contrast(120%);
+            margin-top: 10px;
+        }
+        .proof-img:hover {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        .caption {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* BUTTONS */
+        .btn-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: 3px solid #F7931A;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .btn-buy {
+            background-color: #F7931A;
+            color: #000;
+            box-shadow: 0 0 15px #F7931A;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-buy:hover {
+            background-color: #fff;
+            border-color: #fff;
+            color: #000;
+        }
+
+        .btn-x {
+            background-color: #000;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .btn-x:hover {
+            background-color: #333;
+        }
+
+        /* STATS / TOKENOMICS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            border: 1px solid #333;
+            padding: 10px;
+            background: #050505;
+        }
+
+        .stat-val { font-size: 1.5rem; font-weight: bold; color: #fff; }
+        .stat-label { font-size: 0.8rem; color: #F7931A; text-transform: uppercase; }
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #555;
+            border-top: 1px solid #333;
+        }
+
+        /* ANIMATIONS */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* GLITCH TEXT EFFECT (Simple) */
+        .glitch {
+            position: relative;
+        }
+        
+        .btc-symbol {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #F7931A;
+            border-radius: 50%;
+            color: white;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container">
+        <marquee scrollamount="12">
+            WARNING: MAY CAUSE EXTREME FOMO +++ 10,000 BTC FOR 2 PIZZAS +++ THE MOST EXPENSIVE LUNCH IN HISTORY +++ MINTING NOW ON BRC-20 +++ DON'T BE A LASZLO, BUY $LAZLO +++
+        </marquee>
+    </div>
+
+    <div class="container">
+        
+        <section class="hero">
+            <h1>$LAZLO</h1>
+            <p class="tagline">O PRIMEIRO DEGEN DA HISTÓRIA.</p>
+            
+            <img src="logo.png" alt="Lazlo Cartoon Pizza" class="hero-img">
+
+            <div class="btn-wrapper">
+                <a href="#" class="btn btn-buy">COMPRAR $LAZLO</a>
+                <a href="https://twitter.com/SEU_USER_AQUI" target="_blank" class="btn btn-x">[ X ] TWITTER</a>
+            </div>
+            
+            <div style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+                CA: (Deploying on Bitcoin...)
+            </div>
+        </section>
+
+        <section>
+            <h2>A Lenda</h2>
+            
+            <div class="lore-box">
+                <p class="lore-text">
+                    <span class="btc-symbol">₿</span> <strong>22 de Maio de 2010.</strong>
+                </p>
+                <p class="lore-text">
+                    O mundo ri dele. Dizem que ele perdeu <strong>$600 Milhões de Dólares</strong> em duas pizzas do Papa John's.
+                </p>
+                <p class="lore-text" style="color: #fff; text-transform: uppercase;">
+                    ELES ESTÃO ERRADOS.
+                </p>
+                <p class="lore-text">
+                    Lazlo não "perdeu" seus Bitcoins. Ele os <strong>sacrificou</strong>. Sem a transação dele, o Bitcoin seria apenas código morto. Ele provou que o BTC tinha valor real.
+                </p>
+                <p class="lore-text">
+                    Nós somos o culto ao sacrifício. Nós celebramos a pizza mais cara do universo.
+                </p>
+
+                <img src="1.png" alt="Real Lazlo Photos" class="proof-img">
+                <div class="caption">Arquivo Histórico: O momento exato da transação de 10k BTC.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Dados da Pizza</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-val">21,000,000</div>
+                    <div class="stat-label">Supply Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">100%</div>
+                    <div class="stat-label">Fair Launch</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">0%</div>
+                    <div class="stat-label">Taxa / Tax</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">BRC-20</div>
+                    <div class="stat-label">Network</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>
+                $LAZLO é uma memecoin na rede Bitcoin.<br>
+                Não tem valor intrínseco, assim como a pizza depois de digerida.<br>
+                Divirta-se.
+            </p>
+            <br>
+            <p style="color: #333;">COPYRIGHT 2010-2025 THE PIZZA GUY</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
